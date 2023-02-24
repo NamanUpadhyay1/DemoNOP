@@ -10,7 +10,7 @@ config.capabilities = [
         browserName: 'chrome',//chrome//firefox//MicrosoftEdge
         "os" : "OS X",
         "osVersion" : "Sierra",
-        "browserVersion" : "103.0",
+        "browserVersion" : "110.0",
         "local" : "false",
     }
     
