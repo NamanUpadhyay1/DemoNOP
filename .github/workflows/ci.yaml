@@ -19,8 +19,8 @@ jobs:
 
       - name: Execute tests
         run: npm run browserstack
-      -uses: actions/upload-artifact@v3
-      with:
+      - uses: actions/upload-artifact@v3
+        with:
         name: allureReport
         path: ./allure-report
 
