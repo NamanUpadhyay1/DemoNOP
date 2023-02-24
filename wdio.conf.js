@@ -1,7 +1,12 @@
 const { removeSync } = require('fs-extra');
+const dataInp = require('../DemoNopNaman/testConfig.json')
 
 exports.config = {
-    //
+    //BrowserStack config
+    user: dataInp.browserStackUserName,
+    key: dataInp.browserStackKey,
+
+    
     // ====================
     // Runner Configuration
     // ====================
@@ -53,25 +58,32 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
+    // capabilities: [{
     
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'chrome'//chrome//firefox//MicrosoftEdge
-        //acceptInsecureCerts: true,
-        // 'moz:firefoxOptions':
-        // {
-        //     args:['--headless',]
-        // },
+    //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+    //     // grid with only 5 firefox instances available you can make sure that not more than
+    //     // 5 instances get started at a time.
+    //     maxInstances: 5,
+    //     //
+    //     browserName: 'chrome',//chrome//firefox//MicrosoftEdge
+    //     "os" : "OS X",
+    //     "osVersion" : "Sierra",
+    //     "browserVersion" : "103.0",
+    //     "local" : "false",
+    //     //"browserName" : "Edge",
 
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+
+    //     //acceptInsecureCerts: true,
+    //     // 'goog:chromeOptions':
+    //     // {
+    //     //     args:['--headless',]
+    //     // },
+
+    //     // If outputDir is provided WebdriverIO can capture driver session logs
+    //     // it is possible to configure which logTypes to include/exclude.
+    //     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+    //     // excludeDriverLogs: ['bugreport', 'server'],
+    // }],
     //
     // ===================
     // Test Configurations
@@ -119,7 +131,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    //services: ['browserstack'],//browserstack //chromedriver
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

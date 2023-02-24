@@ -10,5 +10,9 @@
     "securityAnswer":"none",    
     "userName":"hehehaha",
 
-    "expectedFbUrl":"https://www.facebook.com/nopCommerce"
+    "expectedFbUrl":"https://www.facebook.com/nopCommerce",
+
+    "browserStackUserName":"naman_sxuU92",
+    "browserStackKey":"VWtnAPxsH8CSrNxMDBiZ",
+    "browserStack":false
 }
