@@ -12,31 +12,31 @@ const dataInp = require('../testConfig.json')
 const { loginSubmit } = require('../pageobjects/login.page')
 const { pauseTime, switchWindow, closingWindow, printingData } = require('../specs/utils')
 
-// describe('Demo Nop Commerce Registration',()=>
-// {
-//     it('should open the correct website', async()=>
-//     {
-//         await browser.url(dataInp.baseUrl)
-//         // const currentUrl = await browser.getUrl()
-//         // const expectedUrl = dataInp.baseUrl
-//         // console.log(currentUrl)
-//         // assert(currentUrl===expectedUrl)            
-//     })
-//     it('should be able to register an account successfully', async()=>
-//     {
-//         await homePage.registerButton()
-//         await registerPage.maleRadioBtn()
-//         await registerPage.firstName()
-//         await registerPage.lastName()
-//         await registerPage.birthDay().selectByIndex(22)
-//         await registerPage.birthMonth().selectByIndex(9)
-//         await registerPage.birthYear().selectByVisibleText(2002)
-//         await registerPage.emailID()
-//         await registerPage.password()
-//         await registerPage.confirmPassword()
-//         await registerPage.submitButton()
-//     })
-// })
+describe('Demo Nop Commerce Registration',()=>
+{
+    it('should open the correct website', async()=>
+    {
+        await browser.url(dataInp.baseUrl)
+        // const currentUrl = await browser.getUrl()
+        // const expectedUrl = dataInp.baseUrl
+        // console.log(currentUrl)
+        // assert(currentUrl===expectedUrl)            
+    })
+    it('should be able to register an account successfully', async()=>
+    {
+        await homePage.registerButton()
+        await registerPage.maleRadioBtn()
+        await registerPage.firstName()
+        await registerPage.lastName()
+        await registerPage.birthDay().selectByIndex(22)
+        await registerPage.birthMonth().selectByIndex(9)
+        await registerPage.birthYear().selectByVisibleText(2002)
+        await registerPage.emailID()
+        await registerPage.password()
+        await registerPage.confirmPassword()
+        await registerPage.submitButton()
+    })
+})
 
 // describe('Demo Nop Commerce Logging in',()=>
 // {
@@ -93,30 +93,30 @@ const { pauseTime, switchWindow, closingWindow, printingData } = require('../spe
 //     })
 // })
 
-describe('to check if facebook page hyperlink is working correctly',()=>
-{
-    it('should open the correct website', async()=>
-    {
-        await browser.url(dataInp.baseUrl)
-        const currentUrl = await browser.getUrl()
-        const expectedUrl = dataInp.baseUrl
-        console.log(currentUrl)
-        assert(currentUrl===expectedUrl)            
-    })
-    it('redirecting to the nop commerces facebook page',async()=>
-    {
-        await homePage.facebookButton()
-        await pauseTime(3000)
-        await switchWindow("https://www.facebook.com/nopCommerce")
-        await pauseTime(3000)      
-        const currentFbUrl = browser.getUrl()
-        const expectFbUrl = "https://demo.nopcommerce.com/"
-        await pauseTime(2000)
-        await printingData(currentFbUrl);
-        await assert(currentFbUrl!=expectFbUrl)
-        await pauseTime(2000)
-        await closingWindow()
-        await switchWindow("https://demo.nopcommerce.com/")
-        await pauseTime(3000)
-    })
-})
+// describe('to check if facebook page hyperlink is working correctly',()=>
+// {
+//     it('should open the correct website', async()=>
+//     {
+//         await browser.url(dataInp.baseUrl)
+//         const currentUrl = await browser.getUrl()
+//         const expectedUrl = dataInp.baseUrl
+//         console.log(currentUrl)
+//         assert(currentUrl===expectedUrl)            
+//     })
+//     it('redirecting to the nop commerces facebook page',async()=>
+//     {
+//         await homePage.facebookButton()
+//         await pauseTime(3000)
+//         await switchWindow("https://www.facebook.com/nopCommerce")
+//         await pauseTime(3000)      
+//         const currentFbUrl = browser.getUrl()
+//         const expectFbUrl = "https://demo.nopcommerce.com/"
+//         await pauseTime(2000)
+//         await printingData(currentFbUrl);
+//         await assert(currentFbUrl!=expectFbUrl)
+//         await pauseTime(2000)
+//         await closingWindow()
+//         await switchWindow("https://demo.nopcommerce.com/")
+//         await pauseTime(3000)
+//     })
+// })
