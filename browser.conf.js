@@ -1,5 +1,5 @@
 const { config } = require('./wdio.conf');
-const dataInp = require('../DemoNopNaman/testConfig.json')
+const dataInp = require('./testConfig.json')
 
 if(dataInp.browserStack)
 {

@@ -1,5 +1,5 @@
 const { removeSync } = require('fs-extra');
-const dataInp = require('../DemoNopNaman/testConfig.json')
+const dataInp = require('./testConfig.json')
 
 exports.config = {
     //BrowserStack config
