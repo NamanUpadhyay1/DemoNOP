@@ -1,0 +1,12 @@
+{
+    "baseUrl":"https://demo.nopcommerce.com/",
+    "firstName":"Naman",
+    "lastName":"Upadhyay",
+    "firstEmail":"namanfusion",
+    "lastEmail":"@gmail.com",
+    "password":"password123",
+    "confirmPassword":"password123",
+
+    "securityAnswer":"none",    
+    "userName":"hehehaha"
+}
