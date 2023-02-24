@@ -15,6 +15,3 @@ jobs:
           run: npm run browserstack
         - uses: actions/upload-artifact@v1
           if: failure()
-          with:
-            name: logs
-            path: logs
