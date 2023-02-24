@@ -5,6 +5,7 @@ const _loginButton = '.ico-login'
 const _priceList = '//span[@class="price actual-price"]'
 const _electronicsMenu = '//ul[@class="top-menu notmobile"]//li[2]//a[@href="/electronics"]'
 const _cameraphotoButton = '//img[@alt="Picture for category Camera & photo"]'
+const _facebookButton = '//a[@href="http://www.facebook.com/nopCommerce"]'
 
 class HomePage
 {
@@ -37,6 +38,11 @@ class HomePage
     static async cameraButton()
     {
         await utils.clickOnElement(_cameraphotoButton)
+    }
+
+    static async facebookButton()
+    {
+        await utils.clickOnElement(_facebookButton)
     }
 
 }
