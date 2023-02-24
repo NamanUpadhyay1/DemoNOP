@@ -8,5 +8,7 @@
     "confirmPassword":"password123",
 
     "securityAnswer":"none",    
-    "userName":"hehehaha"
+    "userName":"hehehaha",
+
+    "expectedFbUrl":"https://www.facebook.com/nopCommerce"
 }

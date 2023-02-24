@@ -1,5 +1,9 @@
 class Utils 
 {
+    static async printingData(data)
+    {
+        await console.log(data)
+    }
     static async typeText(locator, value) 
     {
         const el = $(locator)
@@ -32,6 +36,26 @@ class Utils
         } catch (err) {
             logger.error("Error " + err);
         }
+    }
+
+    static async pauseTime(time)
+    {
+        await browser.pause(time)
+    }
+
+    static async getCurrentUrl()
+    {
+        await browser.getUrl()
+    }
+
+    static async switchWindow(url)
+    {
+        await browser.switchWindow(url)
+    }
+
+    static async closingWindow()
+    {
+        await browser.closeWindow()
     }
 
 }

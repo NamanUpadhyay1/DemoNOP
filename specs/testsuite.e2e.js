@@ -3,12 +3,14 @@ const registerPage = require('../pageobjects/register.page')
 const homePage = require('../pageobjects/home.page')
 const loginPage = require('../pageobjects/login.page')
 const cameraPage = require('../pageobjects/camera.page')
+const facebookPage = require('../pageobjects/facebook.page')
 const utils = require('../specs/utils')
 
 let date = new Date().getTime()
 
 const dataInp = require('../testConfig.json')
 const { loginSubmit } = require('../pageobjects/login.page')
+const { pauseTime, switchWindow, closingWindow, printingData } = require('../specs/utils')
 
 // describe('Demo Nop Commerce Registration',()=>
 // {
@@ -73,7 +75,25 @@ const { loginSubmit } = require('../pageobjects/login.page')
 //     })
 // })
 
-describe('Checking buttons on the Camera and photo page',()=>
+// describe('Checking buttons on the Camera and photo page',()=>
+// {
+//     it('should open the correct website', async()=>
+//     {
+//         await browser.url(dataInp.baseUrl)
+//         const currentUrl = await browser.getUrl()
+//         const expectedUrl = dataInp.baseUrl
+//         console.log(currentUrl)
+//         assert(currentUrl===expectedUrl)            
+//     })
+//     it('Navigate to the Cameras page ', async()=>
+//     {
+//         await homePage.electronicsMenu()
+//         await homePage.cameraButton()
+//         await cameraPage.addToCartButtons()      
+//     })
+// })
+
+describe('to check if facebook page hyperlink is working correctly',()=>
 {
     it('should open the correct website', async()=>
     {
@@ -83,10 +103,20 @@ describe('Checking buttons on the Camera and photo page',()=>
         console.log(currentUrl)
         assert(currentUrl===expectedUrl)            
     })
-    it('Navigate to the Cameras page ', async()=>
+    it('redirecting to the nop commerces facebook page',async()=>
     {
-        await homePage.electronicsMenu()
-        await homePage.cameraButton()
-        await cameraPage.addToCartButtons()      
+        await homePage.facebookButton()
+        await pauseTime(3000)
+        await switchWindow("https://www.facebook.com/nopCommerce")
+        await pauseTime(3000)      
+        const currentFbUrl = browser.getUrl()
+        const expectFbUrl = "https://demo.nopcommerce.com/"
+        await pauseTime(2000)
+        await printingData(currentFbUrl);
+        await assert(currentFbUrl!=expectFbUrl)
+        await pauseTime(2000)
+        await closingWindow()
+        await switchWindow("https://demo.nopcommerce.com/")
+        await pauseTime(3000)
     })
 })
