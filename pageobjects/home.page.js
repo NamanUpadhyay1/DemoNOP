@@ -6,6 +6,7 @@ const _priceList = '//span[@class="price actual-price"]'
 const _electronicsMenu = '//ul[@class="top-menu notmobile"]//li[2]//a[@href="/electronics"]'
 const _cameraphotoButton = '//img[@alt="Picture for category Camera & photo"]'
 const _facebookButton = '//a[@href="http://www.facebook.com/nopCommerce"]'
+const _searchBar = '[type="text"]'
 
 class HomePage
 {
@@ -43,6 +44,11 @@ class HomePage
     static async facebookButton()
     {
         await utils.clickOnElement(_facebookButton)
+    }
+
+    static async searchBar()
+    {
+        await utils.typeText(_searchBar, "laptop")
     }
 
 }
