@@ -1,5 +1,5 @@
 const { config } = require('./wdio.conf');
-const dataInp = require('../DemoNopNaman/testConfig.json')
+const dataInp = require('./testConfig.json')
 
 if(dataInp.browserStack)
 {
@@ -23,14 +23,26 @@ config.services =
 ]
 }
 else
+if(dataInp.headless)
+{
+    
+
 {
     config.capabilities = 
     [
         {
         maxInstances: 5,
         //
-        browserName: 'chrome'//chrome//firefox//MicrosoftEdge
+        browserName: 'chrome',//chrome//firefox//MicrosoftEdge
+        
+        acceptInsecureCerts: true,
+        
+        'goog:chromeOptions': 
+        {
+            
+            args: ['--headless', '--disable-gpu', '--disable-dev-shm-usage']
         }
+        },
     ]
     config.services =
     [
@@ -38,6 +50,34 @@ else
         ['chromedriver'],
         
     ]
+}
+}
+else
+{
+    {
+        config.capabilities = 
+        [
+            {
+            maxInstances: 5,
+            //
+            browserName: 'chrome',//chrome//firefox//MicrosoftEdge
+            
+            acceptInsecureCerts: true,
+            
+            'goog:chromeOptions': 
+            {
+                
+                args: ['--headed', '--disable-gpu', '--disable-dev-shm-usage']
+            }
+            },
+        ]
+        config.services =
+        [
+            
+            ['chromedriver'],
+            
+        ]
+    }
 }
 
 exports.config = config;

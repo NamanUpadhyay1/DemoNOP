@@ -1,5 +1,7 @@
 const { removeSync } = require('fs-extra');
-const dataInp = require('../DemoNopNaman/testConfig.json')
+const dataInp = require('./testConfig.json')
+//import {ReportAggregator, HtmlReporter} from 'wdio-html-nice-reporter';
+//let reportAggregator= ReportAggregator;
 
 exports.config = {
     //BrowserStack config
@@ -157,11 +159,20 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {
+    reporters: [['allure', 
+    {
         outputDir: 'allure-results',
-        // disableWebdriverStepsReporting: true,
-        // disableWebdriverScreenshotsReporting: false,
-    }]],
+    }
+],
+['junit', {
+    outputDir: './report',
+    errorOptions: {
+        error: 'message',
+        failure: 'message',
+        stacktrace: 'stack'
+    }
+}],
+],
        
     //
     // Options to be passed to Mocha.
@@ -183,9 +194,25 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onPrepare: function (config, capabilities) {
+    onPrepare: function (config, capabilities) 
+    {
         removeSync('allure-results');
-        removeSync('allure-report');      
+        removeSync('allure-report');
+        
+        // reportAggregator = new ReportAggregator({
+        //     outputDir: './reports/html-reports/',
+        //     filename: 'master-report.html',
+        //     reportTitle: 'Master Report',
+        //     browserName : capabilities.browserName,
+        //     collapseTests: true
+        //   });
+        // reportAggregator.clean() ;
+    },
+    onComplete: function(exitCode, config, capabilities, results) 
+    {
+        // (async () => {
+        //     await reportAggregator.createReport();
+        // })();
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service

@@ -1,0 +1,48 @@
+name: Staging tests for web
+on: [push, pull_request]
+# Controls when the action will run. 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: ls
+        run: npm install
+
+      - name: Execute tests
+        run: npm run browserstack
+      - uses: actions/upload-artifact@v3
+        with:
+          name: allureReport
+          path: ./allure-report
+
+
+
+
+
+# name: CI
+# on: [push, pull_request]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#         - name: Checkout
+#           uses: actions/checkout@v2
+#         - uses: actions/setup-node@v1
+#           with:
+#             node-version: 18
+#         - name: Install
+#           run: npm install
+#         - name: Test
+#           run: npm run browserstack
+#         # - uses: actions/upload-artifact@v1
+#         #   if: failure()

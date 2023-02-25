@@ -120,3 +120,20 @@ describe('Demo Nop Commerce Registration',()=>
 //         await pauseTime(3000)
 //     })
 // })
+// describe('Search for laptop',()=>
+// {
+//     it('should open the correct website', async()=>
+//     {
+//         await browser.url(dataInp.baseUrl)
+//         const currentUrl = await browser.getUrl()
+//         const expectedUrl = dataInp.baseUrl
+//         console.log(currentUrl)
+//         assert(currentUrl===expectedUrl)            
+//     })
+//     it('navigate to the search bar and search for laptop', async()=>
+//     {
+//         await homePage.searchBar()
+//         await utils.pauseTime(3000)
+//     })
+
+// })    
